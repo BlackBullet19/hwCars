@@ -1,4 +1,3 @@
-
 public class HomeWorkMain {
 
     public static void main(String[] args) {
@@ -48,26 +47,63 @@ public class HomeWorkMain {
 
         Car[] array = new Car[]{car1, car2, car3, car4, car5, car6, car7};
 
-        displayLoop(array);
+        printArray(array);
 
-        Car.Replace(car1,car5);
+        Car.replace(car1, car5);
 
-        displayLoop(array);
+        printArray(array);
+
+        Truck truck1 = new Truck();
+        truck1.setBrand("Zil");
+        truck1.setModel("130");
+        truck1.setPower(148);
+        truck1.setTransmission("Manual");
+        truck1.setConstructionYear(1968);
+        truck1.setNumberOfSeats(2);
+        truck1.setLoadCapacity(55);
+        truck1.setDriveUnit(null);
+        truck1.setChargeSystem("BiTurbo");
+        truck1.setFuelCapacity(150);
+        truck1.setEmissionStandard("Euro 0");
+        truck1.setEngineType("Бензин");
+
+        Bus bus1 = new Bus();
+        bus1.setBrand("Iveco");
+        bus1.setModel("Expeditor");
+        bus1.setPower(678);
+        bus1.setTransmission("Automatic");
+        bus1.setConstructionYear(2020);
+        bus1.setNumberOfSeats(120);
+        bus1.setFloorHeight(25);
+        bus1.setNumberOfAxles(3);
+        bus1.setNumberOfFloors(2);
+        bus1.setBusType("City Bus");
+        bus1.setChargeSystem("TwinTurbo");
+        bus1.setEmissionStandard("Euro 6d");
+        bus1.setEngineType("Diesel");
+        bus1.setFuelCapacity(350);
+
+        Cabriolet cabriolet1 = new Cabriolet();
+        cabriolet1.setBrand("Tesla");
+        cabriolet1.setModel("ModelX");
+        cabriolet1.setConstructionYear(2015);
+        cabriolet1.setPower(600);
+        cabriolet1.setTransmission("Automatic");
+        cabriolet1.setBodyType("Targa");
+        cabriolet1.setRoofMaterial("Steel");
+        cabriolet1.setNumberOfSeats(5);
+        cabriolet1.setRoofRemovalType("Mechanical");
+        cabriolet1.setBatteryCapacity(180);
+        cabriolet1.setFullChargeTime(16);
+
+        Car[] cars = new Car[]{truck1, bus1, cabriolet1};
+
+        printArray(cars);
     }
 
-    public static void displayLoop(Car[] array) {
-        for (int i = 0; i < array.length - 2; i++) {
-            display(array[i]);
+    public static void printArray(Car[] cars) {
+        for (Car car : cars) {
+            car.printInfo(cars);
         }
-    }
-
-    public static void display(Car car) {
-        System.out.println("Brand - " + car.getBrand());
-        System.out.println("Model - " + car.getModel());
-        System.out.println("Year of construction - " + car.getConstructionYear());
-        System.out.println("Engine power in HP - " + car.getPower());
-        System.out.println("Type of transmission - " + car.getTransmission());
-        System.out.println("Number of seats - " + car.getNumberOfSeats());
-        System.out.println();
     }
 }
