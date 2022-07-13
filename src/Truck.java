@@ -7,7 +7,6 @@ public class Truck extends InternalCombustionEngine {
     private String driveUnit;
 
     public int getLoadCapacity() {
-        loadCapacity = loadCapacity > 0 ? loadCapacity : DEFAULT_LOAD_CAPACITY;
         return loadCapacity;
     }
 
@@ -16,11 +15,6 @@ public class Truck extends InternalCombustionEngine {
     }
 
     public String getDriveUnit() {
-        if (driveUnit != null) {
-            this.driveUnit = driveUnit.isEmpty() ? DEFAULT_DRIVE_UNIT : driveUnit;
-        } else {
-            this.driveUnit = DEFAULT_DRIVE_UNIT;
-        }
         return driveUnit;
     }
 
@@ -33,9 +27,22 @@ public class Truck extends InternalCombustionEngine {
     }
 
     @Override
-    public void printInfo(Car[] cars) {
-        super.printInfo(cars);
+    public void printInfo() {
+        super.printInfo();
         System.out.println("Грузоподъемность - " + getLoadCapacity() + " тонн");
         System.out.println("Привод - " + getDriveUnit());
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", Грузоподъемность=" + loadCapacity + " тонн" +
+                ", Привод='" + driveUnit + '\'';
+    }
+
+    @Override
+    public void printMessage() {
+        System.out.print("Этот грузовик это ");
+        super.printMessage();
     }
 }

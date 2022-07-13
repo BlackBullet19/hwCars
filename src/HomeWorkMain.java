@@ -49,7 +49,8 @@ public class HomeWorkMain {
 
         printArray(array);
 
-        Car.replace(car1, car5);
+        Car.replace(car1,car5);
+
 
         printArray(array);
 
@@ -66,6 +67,20 @@ public class HomeWorkMain {
         truck1.setFuelCapacity(150);
         truck1.setEmissionStandard("Euro 0");
         truck1.setEngineType("Бензин");
+
+        Truck truck2 = new Truck();
+        truck2.setBrand("Man");
+        truck2.setModel("TGX");
+        truck2.setPower(867);
+        truck2.setTransmission("Automatic");
+        truck2.setConstructionYear(2014);
+        truck2.setNumberOfSeats(3);
+        truck2.setLoadCapacity(80);
+        truck2.setDriveUnit("6x6");
+        truck2.setChargeSystem("BiTurbo");
+        truck2.setFuelCapacity(650);
+        truck2.setEmissionStandard("Euro 6d");
+        truck2.setEngineType("Diesel");
 
         Bus bus1 = new Bus();
         bus1.setBrand("Iveco");
@@ -96,14 +111,20 @@ public class HomeWorkMain {
         cabriolet1.setBatteryCapacity(180);
         cabriolet1.setFullChargeTime(16);
 
-        Car[] cars = new Car[]{truck1, bus1, cabriolet1};
+        Car[] cars = new Car[]{truck1, truck2, bus1, cabriolet1};
 
         printArray(cars);
     }
 
     public static void printArray(Car[] cars) {
         for (Car car : cars) {
-            car.printInfo(cars);
+            car.printInfo();
+            System.out.println();
+            car.printMessage();
+            System.out.println();
+            System.out.println(car);
+            System.out.println();
         }
     }
 }
+

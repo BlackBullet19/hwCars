@@ -11,7 +11,6 @@ public class InternalCombustionEngine extends Car {
     private String emissionStandard;
 
     public int getFuelCapacity() {
-        fuelCapacity = fuelCapacity > 0 ? fuelCapacity : DEFAULT_FUEL_CAPACITY;
         return fuelCapacity;
     }
 
@@ -20,11 +19,6 @@ public class InternalCombustionEngine extends Car {
     }
 
     public String getEngineType() {
-        if (engineType != null) {
-            this.engineType = engineType.isEmpty() ? DEFAULT_ENGINE_TYPE : engineType;
-        } else {
-            this.engineType = DEFAULT_ENGINE_TYPE;
-        }
         return engineType;
     }
 
@@ -37,11 +31,6 @@ public class InternalCombustionEngine extends Car {
     }
 
     public String getChargeSystem() {
-        if (chargeSystem != null) {
-            this.chargeSystem = chargeSystem.isEmpty() ? DEFAULT_CHARGE_SYSTEM : chargeSystem;
-        } else {
-            this.chargeSystem = DEFAULT_CHARGE_SYSTEM;
-        }
         return chargeSystem;
     }
 
@@ -54,11 +43,6 @@ public class InternalCombustionEngine extends Car {
     }
 
     public String getEmissionStandard() {
-        if (emissionStandard != null) {
-            this.emissionStandard = emissionStandard.isEmpty() ? DEFAULT_EMISSION_STANDARD : emissionStandard;
-        } else {
-            this.emissionStandard = DEFAULT_EMISSION_STANDARD;
-        }
         return emissionStandard;
     }
 
@@ -71,11 +55,26 @@ public class InternalCombustionEngine extends Car {
     }
 
     @Override
-    public void printInfo(Car[] cars) {
-        super.printInfo(cars);
+    public void printInfo() {
+        super.printInfo();
         System.out.println("Тип наддува - " + getChargeSystem());
         System.out.println("Тип двигателя - " + getEngineType());
         System.out.println("Экологический класс - " + getEmissionStandard());
         System.out.println("Размер бака в литрах - " + getFuelCapacity());
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", Размер бака в литрах=" + fuelCapacity +
+                ", Тип двигателя='" + engineType + '\'' +
+                ", Тип наддува='" + chargeSystem + '\'' +
+                ", Экологический класс='" + emissionStandard + '\'';
+    }
+
+    @Override
+    public void printMessage() {
+        super.printMessage();
+        System.out.print(" с обычним ДВС");
     }
 }

@@ -7,7 +7,6 @@ public class ElectricMotor extends Car {
     private int fullChargeTime;
 
     public int getBatteryCapacity() {
-        batteryCapacity = batteryCapacity > 0 ? batteryCapacity : DEFAULT_BATTERY_CAPACITY;
         return batteryCapacity;
     }
 
@@ -16,7 +15,6 @@ public class ElectricMotor extends Car {
     }
 
     public int getFullChargeTime() {
-        fullChargeTime = fullChargeTime > 0 ? fullChargeTime : DEFAULT_FULL_CHARGE_TIME;
         return fullChargeTime;
     }
 
@@ -25,9 +23,22 @@ public class ElectricMotor extends Car {
     }
 
     @Override
-    public void printInfo(Car[] cars) {
-        super.printInfo(cars);
+    public void printInfo() {
+        super.printInfo();
         System.out.println("Емкость аккумулятора - " + getBatteryCapacity() + " кВт/ч");
         System.out.println("Время полной зарядки - " + getFullChargeTime() + " часов");
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", Емкость аккумулятора=" + batteryCapacity +
+                ", Время полной зарядки=" + fullChargeTime;
+    }
+
+    @Override
+    public void printMessage() {
+        super.printMessage();
+        System.out.print(" но электрический");
     }
 }

@@ -9,11 +9,6 @@ public class Cabriolet extends ElectricMotor {
     private String bodyType;
 
     public String getRoofRemovalType() {
-        if (roofRemovalType != null) {
-            this.roofRemovalType = roofRemovalType.isEmpty() ? DEFAULT_ROOF_REMOVAL_TYPE : roofRemovalType;
-        } else {
-            this.roofRemovalType = DEFAULT_ROOF_REMOVAL_TYPE;
-        }
         return roofRemovalType;
     }
 
@@ -26,11 +21,6 @@ public class Cabriolet extends ElectricMotor {
     }
 
     public String getRoofMaterial() {
-        if (roofMaterial != null) {
-            this.roofMaterial = roofMaterial.isEmpty() ? DEFAULT_ROOF_MATERIAL : roofMaterial;
-        } else {
-            this.roofMaterial = DEFAULT_ROOF_MATERIAL;
-        }
         return roofMaterial;
     }
 
@@ -43,11 +33,6 @@ public class Cabriolet extends ElectricMotor {
     }
 
     public String getBodyType() {
-        if (bodyType != null) {
-            this.bodyType = bodyType.isEmpty() ? DEFAULT_BODY_TYPE : bodyType;
-        } else {
-            this.bodyType = DEFAULT_BODY_TYPE;
-        }
         return bodyType;
     }
 
@@ -60,11 +45,25 @@ public class Cabriolet extends ElectricMotor {
     }
 
     @Override
-    public void printInfo(Car[] cars) {
-        super.printInfo(cars);
+    public void printInfo() {
+        super.printInfo();
         System.out.println("Тип кузова кабриолет - " + getBodyType());
         System.out.println("Материал съемной крыши - " + getRoofMaterial());
         System.out.println("Привод убирания крыши - " + getRoofRemovalType());
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", Привод убирания крыши='" + roofRemovalType + '\'' +
+                ", Материал съемной крыши='" + roofMaterial + '\'' +
+                ", Тип кузова кабриолет='" + bodyType + '\'';
+    }
+
+    @Override
+    public void printMessage() {
+        super.printMessage();
+        System.out.print(" и с откидной крышей");
     }
 }
 

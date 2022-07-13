@@ -46,11 +46,6 @@ public class Car {
     }
 
     public String getBrand() {
-        if (brand != null) {
-            this.brand = brand.isEmpty() ? DEFAULT_BRAND : brand;
-        } else {
-            this.brand = DEFAULT_BRAND;
-        }
         return brand;
     }
 
@@ -63,11 +58,6 @@ public class Car {
     }
 
     public String getModel() {
-        if (model != null) {
-            this.model = model.isEmpty() ? DEFAULT_MODEL : model;
-        } else {
-            this.model = DEFAULT_MODEL;
-        }
         return model;
     }
 
@@ -80,7 +70,6 @@ public class Car {
     }
 
     public int getConstructionYear() {
-        constructionYear = constructionYear > 0 ? constructionYear : DEFAULT_CONSTRUCTION_YEAR;
         return constructionYear;
     }
 
@@ -89,7 +78,6 @@ public class Car {
     }
 
     public int getPower() {
-        power = power > 0 ? power : DEFAULT_POWER;
         return power;
     }
 
@@ -98,11 +86,6 @@ public class Car {
     }
 
     public String getTransmission() {
-        if (transmission != null) {
-            this.transmission = transmission.isEmpty() ? DEFAULT_TRANSMISSION : transmission;
-        } else {
-            this.transmission = DEFAULT_TRANSMISSION;
-        }
         return transmission;
     }
 
@@ -115,7 +98,6 @@ public class Car {
     }
 
     public int getNumberOfSeats() {
-        numberOfSeats = numberOfSeats > 0 ? numberOfSeats : DEFAULT_NUMBER_OF_SEATS;
         return numberOfSeats;
     }
 
@@ -123,7 +105,7 @@ public class Car {
         this.numberOfSeats = numberOfSeats > 0 ? numberOfSeats : DEFAULT_NUMBER_OF_SEATS;
     }
 
-    public void printInfo(Car[] cars) {
+    public void printInfo() {
         System.out.println();
         System.out.println("Бренд - " + getBrand());
         System.out.println("Модель - " + getModel());
@@ -131,5 +113,19 @@ public class Car {
         System.out.println("Мощность двигателя - " + getPower() + " лошадиных сил");
         System.out.println("Тип КПП - " + getTransmission());
         System.out.println("Количество мест - " + getNumberOfSeats());
+    }
+
+    @Override
+    public String toString() {
+        return "Бренд='" + brand + '\'' +
+                ", Модель='" + model + '\'' +
+                ", Год производства=" + constructionYear +
+                ", Мощность двигателя=" + power + " лошадиных сил" +
+                ", Тип КПП='" + transmission + '\'' +
+                ", Количество мест=" + numberOfSeats;
+    }
+
+    public void printMessage() {
+        System.out.print("Авто");
     }
 }
