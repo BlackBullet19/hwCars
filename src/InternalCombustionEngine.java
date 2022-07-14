@@ -1,4 +1,4 @@
-public class InternalCombustionEngine extends Car {
+public abstract class InternalCombustionEngine extends Car {
 
     private static final int DEFAULT_FUEL_CAPACITY = 5;
     private static final String DEFAULT_ENGINE_TYPE = "Керосин";
@@ -15,7 +15,7 @@ public class InternalCombustionEngine extends Car {
     }
 
     public void setFuelCapacity(int fuelCapacity) {
-        this.fuelCapacity = fuelCapacity;
+        this.fuelCapacity = fuelCapacity > 0 ? fuelCapacity : DEFAULT_FUEL_CAPACITY;
     }
 
     public String getEngineType() {

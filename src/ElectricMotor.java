@@ -1,4 +1,4 @@
-public class ElectricMotor extends Car {
+public abstract class ElectricMotor extends Car {
 
     private static final int DEFAULT_BATTERY_CAPACITY = 300;
     private static final int DEFAULT_FULL_CHARGE_TIME = 10;
