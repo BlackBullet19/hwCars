@@ -51,7 +51,6 @@ public class HomeWorkMain {
 
         Car.replace(car1,car5);
 
-
         printArray(array);
 
         Truck truck1 = new Truck();
